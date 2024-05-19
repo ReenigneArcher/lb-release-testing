@@ -1,0 +1,27 @@
+---
+# This action is centrally managed in https://github.com/<organization>/.github/
+# Don't make changes to this file in this repo as they will be overwritten with changes made to the same file in
+# the above-mentioned repo.
+
+# Update changelog on release events.
+
+name: Update changelog
+
+on:
+  release:
+    types: [created, edited, deleted]
+
+concurrency:
+  group: "${{ github.workflow }}"
+  cancel-in-progress: true
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Changelog
+        uses: LizardByte/update-changelog-action@feat-initial-version
+        with:
+          changelogBranch: changelog
+          changelogFile: CHANGELOG.md
+          token: ${{ secrets.GH_BOT_TOKEN }}
