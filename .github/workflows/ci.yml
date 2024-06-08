@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Setup Release
         id: setup-release
-        uses: LizardByte/setup-release-action@fix!-updates  # todo: change to latest
+        uses: LizardByte/setup-release-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # can use GITHUB_TOKEN for read-only access
 
