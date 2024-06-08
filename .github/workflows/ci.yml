@@ -25,7 +25,7 @@ jobs:
 
       - name: Create/Update GitHub Release
         if: ${{ steps.setup-release.outputs.publish_release == 'true' }}
-        uses: LizardByte/create-release-action@fix!-updates  # todo: change to latest
+        uses: LizardByte/create-release-action@fix-replace-unmaintained-dev-drprasad/delete-older-releases-action  # todo: change to latest
         with:
           allowUpdates: false
           artifacts: ""
